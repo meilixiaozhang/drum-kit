@@ -3,12 +3,14 @@ document.querySelectorAll("button").forEach(button => button.addEventListener("c
 function handleClick() {
   var buttonInnerHTML = this.innerHTML;
   makeSound(buttonInnerHTML);
+  buttonAnimation(buttonInnerHTML);
 
   }
 
 
 addEventListener("keydown", function(event) {
   makeSound(event.key);
+  buttonAnimation(event.key);
 });
 
 function makeSound(key) {
@@ -49,4 +51,8 @@ function makeSound(key) {
     break;
     default: console.log(buttonInnerHTML);
   }
+}
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("."+currentKey);
+  activeButton.classList.add("pressed");
 }
